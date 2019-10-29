@@ -6,8 +6,10 @@
 
 const { registerSuite } = intern.getInterface('object');
 const FunctionalHelpers = require('./lib/helpers');
+const selectors = require('./lib/selectors');
+
 const config = intern._config;
-const SIGNIN_URL = config.fxaContentRoot + 'signin';
+const ENTER_EMAIL_URL = config.fxaContentRoot;
 
 const {
   clearBrowserState,
@@ -29,7 +31,8 @@ registerSuite('password visibility', {
     'show password ended with mouseup': function() {
       return (
         this.remote
-          .then(openPage(SIGNIN_URL, '#fxa-signin-header'))
+          .then(openPage(ENTER_EMAIL_URL, selectors.ENTER_EMAIL.HEADER))
+          .then(type(selectors))
           .then(type('#password', 'p'))
           .then(testElementExists('.show-password-label'))
           .then(visibleByQSA('.show-password-label'))

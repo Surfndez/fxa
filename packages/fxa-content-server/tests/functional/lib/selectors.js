@@ -307,6 +307,7 @@ module.exports = {
     SUCCESS: '.success',
     SUBMIT: 'button[type="submit"]',
     SUBMIT_USE_SIGNED_IN: '.use-logged-in',
+    TOOLTIP: 'input[type=password] + .tooltip',
   },
   SIGNIN_RECOVERY_CODE: {
     DONE_BUTTON: '.two-step-authentication-done',
