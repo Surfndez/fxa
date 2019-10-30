@@ -6,6 +6,8 @@
 
 const inherits = require('util').inherits;
 const messages = require('joi/lib/language').errors;
+const OauthError = require('./oauth/error');
+const verror = require('verror');
 
 const ERRNO = {
   SERVER_CONFIG_ERROR: 100,
@@ -154,12 +156,16 @@ const DEBUGGABLE_PAYLOAD_KEYS = new Set([
   'verificationMethod',
 ]);
 
-function AppError(options, extra, headers) {
+function AppError(options, extra, headers, error) {
   this.message = options.message || DEFAULTS.message;
   this.isBoom = true;
   this.stack = options.stack;
   if (!this.stack) {
     Error.captureStackTrace(this, AppError);
+  }
+  if (error) {
+    // This is where verror stores the error cause passed in.
+    this.jse_cause = error;
   }
   this.errno = options.errno || DEFAULTS.errno;
   this.output = {
@@ -178,7 +184,7 @@ function AppError(options, extra, headers) {
     this.output.payload[keys[i]] = extra[keys[i]];
   }
 }
-inherits(AppError, Error);
+inherits(AppError, verror.WError);
 
 AppError.prototype.toString = function() {
   return `Error: ${this.message}`;
@@ -199,6 +205,9 @@ AppError.translate = function(request, response) {
   let error;
   if (response instanceof AppError) {
     return response;
+  }
+  if (OauthError.isOauthRoute(request && request.route.path)) {
+    return OauthError.translate(response);
   }
   const payload = response.output.payload;
   const reason = response.reason;
@@ -1209,7 +1218,24 @@ AppError.invalidOrExpiredOtpCode = () => {
   });
 };
 
-AppError.backendServiceFailure = (service, operation) => {
+AppError.backendServiceFailure = (service, operation, extra, error) => {
+  if (extra) {
+    return new AppError(
+      {
+        code: 500,
+        error: 'Internal Server Error',
+        errno: ERRNO.BACKEND_SERVICE_FAILURE,
+        message: 'A backend service request failed.',
+      },
+      {
+        service,
+        operation,
+        ...extra,
+      },
+      {},
+      error
+    );
+  }
   return new AppError(
     {
       code: 500,
