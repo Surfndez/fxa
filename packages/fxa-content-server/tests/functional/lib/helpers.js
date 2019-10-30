@@ -191,8 +191,14 @@ const testElementExists = thenify(function(selector) {
   return this.parent.findByCssSelector(selector).end();
 });
 
+/**
+ * Press a key
+ *
+ * @param {string} key
+ * @returns {promise}
+ */
 const pressKeys = thenify(function(key) {
-  return this.parent.pressKeys([key]).end();
+  return this.parent.pressKeys(key).end();
 });
 
 /**

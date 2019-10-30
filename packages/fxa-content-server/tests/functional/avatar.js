@@ -78,15 +78,21 @@ registerSuite('settings/avatar', {
     'attempt to navigate by tabbing': function() {
       return this.remote
         .then(openPage(AVATAR_CHANGE_URL_AUTOMATED, '#camera'))
+        .getActiveElement()
+        .then(function(element) {
+          element.getAttribute('class').then(function(className) {
+            // active element should be the modal, not the body
+            assert.isTrue(className.includes('modal'));
+          });
+        })
         .then(pressKeys(keys.TAB))
         .getActiveElement()
         .then(function(element) {
           element.getAttribute('id').then(function(id) {
-            // fails
+            // fails - active element is still the modal
             assert.equal(id, 'file');
           });
-        })
-        .end();
+        });
     },
 
     'go to settings with an email selected to see change link then click on avatar to change': function() {
