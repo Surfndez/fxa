@@ -80,7 +80,7 @@
     "poolee": "1.0.1",
     "punycode.js": "2.1.0",
     "qrcode": "1.2.0",
-    "redis": "2.7.1",
+    "redis": "3.1.1",
     "request": "2.88.0",
     "safe-regex": "1.1.0",
     "safe-url-assembler": "1.3.5",
