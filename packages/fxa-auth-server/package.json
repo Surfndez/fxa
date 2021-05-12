@@ -73,7 +73,7 @@
     "mysql-patcher": "0.7.0",
     "node-uap": "git+https://github.com/vladikoff/node-uap.git#9cdd16247",
     "node-zendesk": "^1.4.0",
-    "nodemailer": "2.7.2",
+    "nodemailer": "6.4.16",
     "otplib": "8.0.1",
     "pem-jwk": "^2.0.0",
     "po2json": "0.4.5",
