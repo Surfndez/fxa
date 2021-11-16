@@ -38,7 +38,7 @@
     "@hapi/hoek": "^8.3.2",
     "@sentry/node": "^5.7.1",
     "ajv": "4.1.7",
-    "aws-sdk": "2.77.0",
+    "aws-sdk": "2.814.0",
     "base64url": "3.0.0",
     "binary-split": "0.1.2",
     "bluebird": "3.5.2",
