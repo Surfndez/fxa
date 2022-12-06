@@ -30,7 +30,7 @@
   "dependencies": {
     "aws-sdk": "^2.366.0",
     "bluebird": "^3.5.3",
-    "qs": "^6.6.0"
+    "qs": "^6.6.1"
   },
   "devDependencies": {
     "audit-filter": "^0.5.0",
