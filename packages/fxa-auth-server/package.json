@@ -47,7 +47,7 @@
     "cldr-core": "31.0.1",
     "cldr-localenames-full": "31.0.1",
     "commander": "2.18.0",
-    "convict": "4.3.1",
+    "convict": "6.2.4",
     "email-addresses": "2.0.2",
     "fxa-jwtool": "0.7.2",
     "fxa-notifier-aws": "1.0.0",
