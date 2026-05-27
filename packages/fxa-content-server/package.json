@@ -82,7 +82,7 @@
         "helmet": "3.21.1",
         "i18n-abide": "0.0.26",
         "joi": "^14.3.1",
-        "jquery": "3.4.0",
+        "jquery": "3.5.0",
         "jquery-modal": "git://github.com/shane-tomlinson/jquery-modal.git#0576775d1b4590314b114386019f4c7421c77503",
         "jquery-simulate": "1.0.2",
         "jquery-ui": "1.12.1",
@@ -91,7 +91,7 @@
         "jsxgettext-recursive-next": "1.1.0",
         "legal-docs": "git://github.com/mozilla/legal-docs.git#master",
         "load-grunt-tasks": "3.5.2",
-        "lodash": "4.17.13",
+        "lodash": "4.18.1",
         "mailcheck": "1.1.1",
         "mkdirp": "0.5.1",
         "mocha": "4.0.1",
@@ -122,7 +122,7 @@
         "uglifyjs-webpack-plugin": "1.2.7",
         "underscore": "1.8.3",
         "webpack": "4.16.1",
-        "webpack-cli": "3.1.0"
+        "webpack-cli": "3.3.12"
     },
     "devDependencies": {
         "@babel/cli": "7.6.2",
@@ -133,7 +133,7 @@
         "babel-plugin-dynamic-import-webpack": "1.0.2",
         "chai": "^4.2.0",
         "css": "2.2.3",
-        "eslint": "5.16.0",
+        "eslint": "10.4.0",
         "eslint-config-prettier": "^5.0.0",
         "eslint-plugin-fxa": "git://github.com/mozilla/eslint-plugin-fxa.git#1153ff4bbf7e2c074363253c555fb7f71bac09a1",
         "eslint-plugin-sorting": "0.4.1",
